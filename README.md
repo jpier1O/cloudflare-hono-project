@@ -58,3 +58,9 @@ password: app_password
 
 # Revisa los readme de fe y be para levantar el setup
 # La app esta desplegada en vercel ahora para el fe
+
+
+## Response of answers
+1. How would you approach implementing DMARC and DKIM configuration for
+a platform hosted on Cloudflare? What is the purpose of each?
+

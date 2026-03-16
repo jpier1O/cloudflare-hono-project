@@ -1,6 +1,8 @@
 import type { TenantId } from '@/lib/tenants';
 import { tenantOptions } from '@/lib/tenants';
 
+//Tenant selector - switching tenants changes the Authorization token used
+
 type Props = {
   value: TenantId;
   onChange: (tenantId: TenantId) => void;

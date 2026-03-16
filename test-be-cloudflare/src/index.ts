@@ -9,19 +9,16 @@ const app = new Hono<AppBindings>();
 app.use(
   '*',
   cors({
-    origin: 'http://localhost:3000',
+    origin: '*',
     allowHeaders: ['Content-Type', 'Authorization'],
     allowMethods: ['GET', 'POST', 'DELETE', 'OPTIONS'],
-    exposeHeaders: ['Content-Length'],
-    maxAge: 600,
+    // exposeHeaders: ['Content-Length'],
+    // maxAge: 600,
   }),
 );
 
-app.get('/', (c) => {
-  return c.json({
-    name: 'multi-tenant-task-api',
-    status: 'running',
-  });
+app.get("/health", (c) => {
+  return c.json({ ok: true, service: "test-cloudflare-backend" });
 });
 
 app.route('/health', health);
