@@ -2,10 +2,13 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "test-be-cloudflare",
   "main": "src/index.ts",
-  "compatibility_date": "2026-03-14"
-  // "compatibility_flags": [
-  //   "nodejs_compat"
-  // ],
+  "compatibility_date": "2026-03-14",
+  "compatibility_flags": [
+    "nodejs_compat"
+  ],
+  "dev": {
+    "port": 8787
+  }
   // "vars": {
   //   "MY_VAR": "my-variable"
   // },

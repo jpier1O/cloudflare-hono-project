@@ -16,21 +16,36 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+# Frontend
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Aplicación frontend construida con **Next.js** que consume la API del backend.
 
-## Learn More
+Permite gestionar tareas para múltiples tenants.
 
-To learn more about Next.js, take a look at the following resources:
+Cada tenant ve únicamente sus propias tareas.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# Variables de entorno
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Archivo `.env.local`
 
-## Deploy on Vercel
+# Setup local paso a paso
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 1. Entrar a la carpeta del frontend
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+cd test-fe-cloudfare
+```
+
+## 2. Instalar dependencias
+
+pnpm install
+
+## 3. Crear archivos de entornos si no los tienes
+
+```bash
+cp .env.local.example .env.local
+```
+
+## 4. Levantar frontend, pero antes estar seguro de tener levantado el backend en los puertos correctos (8787 o 8788)
+
+pnpm dev
