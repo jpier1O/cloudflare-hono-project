@@ -1,19 +1,19 @@
 # Multi-tenant Task Manager
 
-Proyecto de ejemplo que implementa un sistema de tareas **multi-tenant**.
+Sample project implementing a **multi-tenant** task system.
 
-Cada tenant tiene sus propias tareas y no puede ver las de otros tenants.
+Each tenant has its own tasks and cannot see other tenants' tasks.
 
-El proyecto está dividido en dos aplicaciones:
+The project is split into two applications:
 
 - **Backend:** Cloudflare Workers / Hono / Drizzle ORM / PostgreSQL
 - **Frontend:** Next.js / TypeScript / Tailwind CSS / TanStack Query
 
-La base de datos se levanta **localmente con Docker** para facilitar el desarrollo.
+The database runs **locally with Docker** for easier development.
 
 ---
 
-# Estructura del proyecto
+## Project structure
 
 ```txt
 .
@@ -25,9 +25,9 @@ La base de datos se levanta **localmente con Docker** para facilitar el desarrol
 
 ---
 
-# Requisitos
+## Requirements
 
-Antes de comenzar necesitas tener instalado:
+Before you begin, you need:
 
 - Node.js **20+**
 - pnpm
@@ -36,29 +36,27 @@ Antes de comenzar necesitas tener instalado:
 
 ---
 
-# Base de datos local (Docker)
+## Local database (Docker)
 
-El proyecto utiliza **PostgreSQL** ejecutándose en un contenedor Docker.
+The project uses **PostgreSQL** running in a Docker container so anyone can start the database without installing PostgreSQL manually.
 
-Esto permite que cualquier persona pueda levantar la base de datos sin instalar PostgreSQL manualmente.
-
-Para iniciar la base de datos ejecuta desde la raíz del proyecto:
+From the project root, start the database with:
 
 ```bash
 docker compose up -d
+```
 
-## Esto iniciara un contenedor task-manager-postgres
-## La base de datos quedara disponible en localhost:5433
+This starts a `task-manager-postgres` container. The database is available at `localhost:5433`.
 
-# Credenciales bd por defecto
+### Default database credentials
 
-database: task_manager
-user: app_user
-password: app_password
+- **database:** task_manager
+- **user:** app_user
+- **password:** app_password
 
-# Revisa los readme de fe y be para levantar el setup
-# La app esta desplegada en vercel ahora para el fe
+See the backend and frontend READMEs for full setup. The frontend app is deployed on Vercel.
 
+---
 
 ## Response of answers
 1. How would you approach implementing DMARC and DKIM configuration for

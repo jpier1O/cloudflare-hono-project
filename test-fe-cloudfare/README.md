@@ -1,8 +1,12 @@
+# Frontend
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+Frontend app built with **Next.js** that consumes the backend API. It lets you manage tasks for multiple tenants; each tenant only sees their own tasks.
 
-First, run the development server:
+## Getting started
+
+Run the development server:
 
 ```bash
 npm run dev
@@ -14,38 +18,35 @@ pnpm dev
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-# Frontend
+## Environment variables
 
-Aplicación frontend construida con **Next.js** que consume la API del backend.
+Use the `.env.local` file for local configuration.
 
-Permite gestionar tareas para múltiples tenants.
+## Local setup (step by step)
 
-Cada tenant ve únicamente sus propias tareas.
+1. **Go to the frontend folder**
 
-# Variables de entorno
+   ```bash
+   cd test-fe-cloudfare
+   ```
 
-Archivo `.env.local`
+2. **Install dependencies**
 
-# Setup local paso a paso
+   ```bash
+   pnpm install
+   ```
 
-## 1. Entrar a la carpeta del frontend
+3. **Create env files** (if you don’t have them)
 
-```bash
-cd test-fe-cloudfare
-```
+   ```bash
+   cp .env.local.example .env.local
+   ```
 
-## 2. Instalar dependencias
+4. **Start the frontend**  
+   Make sure the backend is running on the correct port (8787 or 8788) first.
 
-pnpm install
-
-## 3. Crear archivos de entornos si no los tienes
-
-```bash
-cp .env.local.example .env.local
-```
-
-## 4. Levantar frontend, pero antes estar seguro de tener levantado el backend en los puertos correctos (8787 o 8788)
-
-pnpm dev
+   ```bash
+   pnpm dev
+   ```

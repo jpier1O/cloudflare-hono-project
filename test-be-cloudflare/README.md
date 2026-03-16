@@ -1,27 +1,24 @@
-## Description
+# Backend — Cloudflare Workers / Hono / Drizzle
 
-``md
-# Backend - Cloudflare Workers / Hono / Drizzle
+Multi-tenant API for task management.
 
-API multi-tenant para gestión de tareas (tasks)
-
-## Variables de entorno
+## Environment variables
 
 ### `.dev.vars`
-Usado por Wrangler para desarrollo local.
 
-
----
+Used by Wrangler for local development.
 
 ### `.env`
 
-Usado por **Drizzle CLI** para ejecutar migraciones.
-
+Used by **Drizzle CLI** for running migrations.
 
 ```env
 DATABASE_URL=postgresql://app_user:app_password@localhost:5433/task_manager
 TOKEN_TENANT_A=tenant-a-local-token
 TOKEN_TENANT_B=tenant-b-local-token
+```
+
+---
 
 ## Run locally
 
@@ -36,47 +33,65 @@ pnpm dev
 pnpm deploy
 ```
 
-[For generating/synchronizing types based on your Worker configuration run](https://developers.cloudflare.com/workers/wrangler/commands/#types):
-
 ## Generate Cloudflare types
+
+[For generating/synchronizing types based on your Worker configuration](https://developers.cloudflare.com/workers/wrangler/commands/#types):
 
 ```bash
 pnpm cf-typegen
 ```
 
-Pass the `CloudflareBindings` as generics when instantiation `Hono`:
+Pass the `CloudflareBindings` as generics when instantiating `Hono`:
 
 ```ts
 // src/index.ts
 const app = new Hono<{ Bindings: CloudflareBindings }>()
 ```
 
-# Setup local paso a paso
+---
 
-## 1. Entrar a la carpeta del backend
+## Local setup (step by step)
 
-```bash
-cd test-be-cloudflare
-```
+1. **Go to the backend folder**
 
-## 2. Instalar dependencias
+   ```bash
+   cd test-be-cloudflare
+   ```
 
-pnpm install
+2. **Install dependencies**
 
-## 3. Crear archivos
+   ```bash
+   pnpm install
+   ```
 
-cp .dev.vars.example .dev.vars
-cp .env.example .env
+3. **Create env files**
 
-## 4. Revisar bd levantada con docker
-## 5. Aplicar el esquema a la bd
+   ```bash
+   cp .dev.vars.example .dev.vars
+   cp .env.example .env
+   ```
 
-pnpm db:push
+4. **Ensure the database is running with Docker** (from project root: `docker compose up -d`).
 
-## 6. Levantar el entorno y revisar que el backend quede en localhost:8787 si hay errores modificar de 8787 a 8788
+5. **Apply the schema to the database**
 
-pnpm dev
+   ```bash
+   pnpm db:push
+   ```
 
-## 7. Probar el endpoint curl http://localhost:8787/health
+6. **Start the dev server**  
+   Backend runs at `http://localhost:8787`. If there are port conflicts, use 8788.
 
-## deplegar a cloudfare
+   ```bash
+   pnpm dev
+   ```
+
+7. **Test the endpoint**
+
+   ```bash
+   curl http://localhost:8787/health
+   ```
+
+## Deploy to Cloudflare
+
+Use `pnpm deploy` when ready to deploy to Cloudflare.
