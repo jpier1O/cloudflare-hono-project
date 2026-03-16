@@ -64,3 +64,13 @@ password: app_password
 1. How would you approach implementing DMARC and DKIM configuration for
 a platform hosted on Cloudflare? What is the purpose of each?
 
+
+
+2. A user reports they can see tasks that don't belong to them. Walk us
+through how you would debug and fix this in a multi-tenant system.
+
+
+
+
+3. What would your automated daily database backup strategy look like for a
+Neon Postgres database? How would you verify it's working?
